@@ -42,7 +42,7 @@ RUN curl -Lo ./kind https://kind.sigs.k8s.io/dl/${KIND_VERSION}/kind-linux-$(go 
      && mv ./kind /usr/local/bin/kind \
      && curl -Lo ./kubebuilder https://go.kubebuilder.io/dl/latest/$(go env GOOS)/$(go env GOARCH) \
      && chmod +x ./kubebuilder \ 
-     && mv ./kubebuilder /usr/local/bin/kubebuilder \
+     && mv ./kubebuilder /usr/local/bin/kubebuilder
 
 # [Optional] Uncomment the next lines to use go get to install anything else you need
 # USER vscode
