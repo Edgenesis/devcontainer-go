@@ -3,7 +3,7 @@ ARG VARIANT=1-bullseye
 FROM golang:${VARIANT}
 
 # Copy library scripts to execute
-COPY library-scripts/*.sh library-scripts/*.env script-library/*.sh /tmp/library-scripts/
+COPY script-library/*.sh script-library/*.env /tmp/library-scripts/
 
 # [Option] Install zsh
 ARG INSTALL_ZSH="true"
