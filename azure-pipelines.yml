@@ -1,0 +1,44 @@
+trigger:
+  branches:
+    include:
+    - main
+
+pr: none
+
+variables:
+  name: tag
+  value: latest
+
+pool:
+  vmImage: ubuntu-latest
+
+steps:
+- task: NodeTool@0
+  inputs:
+    versionSpec: '16.x'
+  displayName: 'Install Node.js'
+
+- script: |
+    npm install -g @devcontainers/cli
+  displayName: 'npm install devcontainer'
+
+- task: DockerInstaller@0
+  displayName: "Docker Installer"
+  inputs:
+    dockerVersion: 20.10.9
+    releaseType: stable
+
+- task: Docker@2
+  displayName: Login to DockerHub
+  inputs:
+    command: login
+    containerRegistry: dockerhub-connection
+
+- script: |
+    docker run --rm --privileged multiarch/qemu-user-static --reset -p yes
+    docker buildx create --use
+  displayName: configure multi-arch and buildx
+
+- script: |
+    devcontainer build --workspace-folder=. --image-name=edgehub/devcontainer-go:$(tag) --platform=linux/amd64,linux/arm64 --push
+  displayName: 'build and push devcontainer'
