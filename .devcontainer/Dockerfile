@@ -20,6 +20,7 @@ RUN bash /tmp/library-scripts/common-debian.sh "${INSTALL_ZSH}" "${USERNAME}" "$
     && bash /tmp/library-scripts/kubectl-helm-debian.sh "latest" "latest" "none" \
     && bash /tmp/library-scripts/python-debian.sh "os-provided"\
     && bash /tmp/library-scripts/github-debian.sh "latest"\
+    && apt install -y protobuf-compiler \
     && apt-get clean -y && rm -rf /var/lib/apt/lists/*
 
 # [Choice] Node.js version: none, lts/*, 16, 14, 12, 10
@@ -42,7 +43,6 @@ RUN curl -Lo ./kind https://kind.sigs.k8s.io/dl/${KIND_VERSION}/kind-linux-$(go 
      && curl -Lo ./kubebuilder https://go.kubebuilder.io/dl/latest/$(go env GOOS)/$(go env GOARCH) \
      && chmod +x ./kubebuilder \ 
      && mv ./kubebuilder /usr/local/bin/kubebuilder \
-     && apt-get update && apt install -y protobuf-compiler
 
 # [Optional] Uncomment the next lines to use go get to install anything else you need
 # USER vscode
