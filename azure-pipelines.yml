@@ -6,7 +6,7 @@ trigger:
 pr: none
 
 variables:
-  name: tag
+- name: tag
   value: latest
 
 pool:
@@ -40,5 +40,7 @@ steps:
   displayName: configure multi-arch and buildx
 
 - script: |
-    devcontainer build --workspace-folder=. --image-name=edgehub/devcontainer-go:$(tag) --platform=linux/amd64,linux/arm64 --push
+    devcontainer build --workspace-folder=. \
+    --image-name=edgehub/devcontainer-go:$(tag) \
+    --platform=linux/amd64,linux/arm64 --push
   displayName: 'build and push devcontainer'
