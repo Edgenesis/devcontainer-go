@@ -46,9 +46,7 @@ RUN curl -Lo ./kind https://kind.sigs.k8s.io/dl/${KIND_VERSION}/kind-linux-$(go 
      && mv ./kubebuilder /usr/local/bin/kubebuilder
 
 # [Optional] Uncomment the next lines to use go get to install anything else you need
-# USER vscode
-# RUN go get -x <your-dependency-or-tool>
-USER vecode
+USER vscode
 RUN go install google.golang.org/protobuf/cmd/protoc-gen-go@v1.28 \
     && go install google.golang.org/grpc/cmd/protoc-gen-go-grpc@v1.2
 # [Optional] Uncomment this line to install global node packages.
