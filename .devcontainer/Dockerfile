@@ -15,7 +15,7 @@ ARG USER_UID=1000
 ARG USER_GID=$USER_UID
 ENV GO111MODULE=auto
 RUN bash /tmp/library-scripts/common-debian.sh "${INSTALL_ZSH}" "${USERNAME}" "${USER_UID}" "${USER_GID}" "${UPGRADE_PACKAGES}" "true" "true" \
-    && bash /tmp/library-scripts/go-debian.sh "none" "/usr/local/go" "${GOPATH}" "${USERNAME}" "false" \
+    && bash /tmp/library-scripts/go-debian.sh "none" \
     && bash /tmp/library-scripts/docker-debian.sh \
     && bash /tmp/library-scripts/kubectl-helm-debian.sh "latest" "latest" "none" \
     && bash /tmp/library-scripts/python-debian.sh "os-provided"\
