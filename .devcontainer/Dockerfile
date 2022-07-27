@@ -17,7 +17,8 @@ ENV GO111MODULE=auto
 ENV DOCKER_BUILDKIT=1
 RUN bash /tmp/library-scripts/common-debian.sh "${INSTALL_ZSH}" "${USERNAME}" "${USER_UID}" "${USER_GID}" "${UPGRADE_PACKAGES}" "true" "true" \
     && bash /tmp/library-scripts/go-debian.sh "none" \
-    && bash /tmp/library-scripts/docker-in-docker-debian.sh \
+    # && bash /tmp/library-scripts/docker-in-docker-debian.sh \
+    && bash /tmp/library-scripts/\docker-debian.sh \
     && bash /tmp/library-scripts/kubectl-helm-debian.sh "latest" "latest" "none" \
     && bash /tmp/library-scripts/python-debian.sh "os-provided"\
     && bash /tmp/library-scripts/github-debian.sh "latest"\
@@ -53,5 +54,5 @@ RUN go install google.golang.org/protobuf/cmd/protoc-gen-go@v1.28 \
 # RUN su vscode -c "source /usr/local/share/nvm/nvm.sh && npm install -g <your-package-here>" 2>&1
 
 ENTRYPOINT ["/usr/local/share/docker-init.sh"]
-VOLUME [ "/var/lib/docker" ]
+# VOLUME [ "/var/lib/docker" ]s
 CMD ["sleep", "infinity"]
