@@ -13,7 +13,7 @@ RUN bash /tmp/library-scripts/common-debian.sh \
     && bash /tmp/library-scripts/kubectl-helm-debian.sh "latest" "latest" "none" \
     && bash /tmp/library-scripts/python-debian.sh "os-provided" \
     && bash /tmp/library-scripts/github-debian.sh "latest" \
-    && apt-get install protobuf-compiler \
+    && apt-get install -y protobuf-compiler \
     && apt-get autoremove -y && apt-get clean -y && rm -rf /var/lib/apt/lists/* \
     && echo "source /etc/bash_completion" >> "/root/.bashrc" \
     && echo "source <(kubectl completion bash)" >> "/root/.bashrc"
