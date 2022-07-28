@@ -18,7 +18,7 @@ ENV DOCKER_BUILDKIT=1
 RUN bash /tmp/library-scripts/common-debian.sh "${INSTALL_ZSH}" "${USERNAME}" "${USER_UID}" "${USER_GID}" "${UPGRADE_PACKAGES}" "true" "true" \
     && bash /tmp/library-scripts/go-debian.sh "none" \
     # && bash /tmp/library-scripts/docker-in-docker-debian.sh \
-    && bash /tmp/library-scripts/\docker-debian.sh \
+    && bash /tmp/library-scripts/docker-debian.sh \
     && bash /tmp/library-scripts/kubectl-helm-debian.sh "latest" "latest" "none" \
     && bash /tmp/library-scripts/python-debian.sh "os-provided"\
     && bash /tmp/library-scripts/github-debian.sh "latest"\
@@ -47,9 +47,9 @@ RUN curl -Lo ./kind https://kind.sigs.k8s.io/dl/${KIND_VERSION}/kind-linux-$(go 
      && mv ./kubebuilder /usr/local/bin/kubebuilder
 
 # [Optional] Uncomment the next lines to use go get to install anything else you need
-USER vscode
-RUN go install google.golang.org/protobuf/cmd/protoc-gen-go@v1.28 \
-    && go install google.golang.org/grpc/cmd/protoc-gen-go-grpc@v1.2
+# USER vscode
+# RUN go install google.golang.org/protobuf/cmd/protoc-gen-go@v1.28 \
+#     && go install google.golang.org/grpc/cmd/protoc-gen-go-grpc@v1.2
 # [Optional] Uncomment this line to install global node packages.
 # RUN su vscode -c "source /usr/local/share/nvm/nvm.sh && npm install -g <your-package-here>" 2>&1
 
