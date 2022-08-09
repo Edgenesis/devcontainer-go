@@ -213,7 +213,7 @@ GO_TOOLS="\
     github.com/ramya-rao-a/go-outline@latest \
     github.com/go-delve/delve/cmd/dlv@latest \
     github.com/golangci/golangci-lint/cmd/golangci-lint@latest \
-    google.golang.org/protobuf/cmd/protoc-gen-go@v1.28 \
+    google.golang.org/protobuf/cmd/protoc-gen-go@v1.28.1 \
     google.golang.org/grpc/cmd/protoc-gen-go-grpc@v1.2"
 if [ "${INSTALL_GO_TOOLS}" = "true" ]; then
     echo "Installing common Go tools..."
