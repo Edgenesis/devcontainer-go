@@ -214,7 +214,11 @@ GO_TOOLS="\
     github.com/go-delve/delve/cmd/dlv@latest \
     github.com/golangci/golangci-lint/cmd/golangci-lint@latest \
     google.golang.org/protobuf/cmd/protoc-gen-go@v1.28.1 \
-    google.golang.org/grpc/cmd/protoc-gen-go-grpc@v1.2"
+    google.golang.org/grpc/cmd/protoc-gen-go-grpc@v1.2.0 \
+    github.com/golang/mock/mockgen@v1.6.0 \
+    github.com/grpc-ecosystem/grpc-gateway/v2/protoc-gen-grpc-gateway@latest \
+    github.com/grpc-ecosystem/grpc-gateway/v2/protoc-gen-openapiv2@latest \
+    github.com/envoyproxy/protoc-gen-validate@latest"
 if [ "${INSTALL_GO_TOOLS}" = "true" ]; then
     echo "Installing common Go tools..."
     export PATH=${TARGET_GOROOT}/bin:${PATH}
