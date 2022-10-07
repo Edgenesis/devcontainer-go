@@ -12,14 +12,13 @@
 # limitations under the License.
 #
 #
-# Syntax: ./install-dapr-tools.sh [USERNAME] [GOROOT] [GOPATH] [DAPR_CLI_VERSION] [PROTOC_VERSION] [PROTOC_GEN_GO_VERSION] [PROTOC_GEN_GO_GRPC_VERSION] [GOLANGCI_LINT_VERSION]
+# Syntax: ./install-dapr-tools.sh [USERNAME] [GOROOT] [GOPATH] [DAPR_CLI_VERSION] [PROTOC_VERSION] [PROTOC_GEN_GO_VERSION] [PROTOC_GEN_GO_GRPC_VERSION]
 
 USERNAME=${1:-"vscode"}
 GOROOT=${2:-"/usr/local/go"}
 GOPATH=${3:-"/go"}
 DAPR_CLI_VERSION=${4:-""}
-PROTOC_VERSION=${5:-"21.4"}
-GOLANGCI_LINT_VERSION=${6:-"1.45.2"}
+PROTOC_VERSION=${5:-"21.7"}
 
 set -e
 
