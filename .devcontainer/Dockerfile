@@ -21,7 +21,7 @@ RUN bash /tmp/library-scripts/common-debian.sh \
     && echo "source <(kubectl completion bash)" >> "/root/.bashrc"
 
 ENV GOPRIVATE=github.com/Edgenesis,edgenesis.io/shifu
-ARG KIND_VERSION="v0.16.0"
+ARG KIND_VERSION="v0.18.0"
 
 RUN curl -Lo ./kind https://kind.sigs.k8s.io/dl/${KIND_VERSION}/kind-linux-$(go env GOARCH) \
      && chmod +x ./kind \
