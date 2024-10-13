@@ -6,9 +6,6 @@
 		"context": "."
 	},
 	"features": {
-		"ghcr.io/devcontainers/features/node:1": {
-			"version": "latest"
-		},
 		"ghcr.io/devcontainers/features/docker-in-docker:2": {
 			"version": "latest",
 			"moby": true
@@ -17,7 +14,6 @@
 			"minikube": "none"
 		},
 		"ghcr.io/devcontainers/features/github-cli:1": {},
-		"ghcr.io/devcontainers/features/git:1": {},
 		"ghcr.io/devcontainers/features/python:1": {}
 	}
 }

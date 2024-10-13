@@ -1,7 +1,6 @@
 ARG VARIANT="1"
 FROM mcr.microsoft.com/devcontainers/go:${VARIANT}
 
-
 ARG KIND_VERSION="v0.24.0"
 
 RUN curl -Lo ./kind https://kind.sigs.k8s.io/dl/${KIND_VERSION}/kind-linux-$(go env GOARCH) \
@@ -10,6 +9,4 @@ RUN curl -Lo ./kind https://kind.sigs.k8s.io/dl/${KIND_VERSION}/kind-linux-$(go 
      && curl -Lo ./kubebuilder https://go.kubebuilder.io/dl/latest/$(go env GOOS)/$(go env GOARCH) \
      && chmod +x ./kubebuilder \ 
      && mv ./kubebuilder /usr/local/bin/kubebuilder
-
-ENTRYPOINT ["/usr/local/share/docker-init.sh"]
-CMD ["sleep", "infinity"]
+RUN apt update && apt install -y libpcap-dev && rm -rf /var/lib/apt/lists/*
