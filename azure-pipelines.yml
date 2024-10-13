@@ -15,7 +15,7 @@ pool:
 steps:
 - task: NodeTool@0
   inputs:
-    versionSpec: '16.x'
+    versionSpec: '20.x'
   displayName: 'Install Node.js'
 
 - script: |
@@ -25,7 +25,7 @@ steps:
 - task: DockerInstaller@0
   displayName: "Docker Installer"
   inputs:
-    dockerVersion: 20.10.9
+    dockerVersion: 27.3.1
     releaseType: stable
 
 - task: Docker@2
@@ -41,6 +41,7 @@ steps:
 
 - script: |
     devcontainer build --workspace-folder=. \
+    --image-name=edgenesis/devcontainer-go:$(tag) \
     --image-name=edgehub/devcontainer-go:$(tag) \
     --platform=linux/amd64,linux/arm64 --push
   displayName: 'build and push devcontainer'
