@@ -1,7 +1,7 @@
-ARG VARIANT="1"
+ARG VARIANT="dev-1"
 FROM mcr.microsoft.com/devcontainers/go:${VARIANT}
 
-ARG KIND_VERSION="v0.24.0"
+ARG KIND_VERSION="v0.25.0"
 
 RUN curl -Lo ./kind https://kind.sigs.k8s.io/dl/${KIND_VERSION}/kind-linux-$(go env GOARCH) \
      && chmod +x ./kind \
